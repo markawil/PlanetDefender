@@ -5,7 +5,7 @@
 --
 -- local sheetInfo = require("myExportedImageSheet") -- lua file that Texture packer published
 --
--- local myImageSheet = graphics.newImageSheet( "ImageSheet.png", sheetInfo:getSheet() ) -- ImageSheet.png is the image Texture packer published
+-- local imageSheet = graphics.newImageSheet( "ImageSheet.png", sheetInfo:getSheet() ) -- ImageSheet.png is the image Texture packer published
 --
 -- local myImage1 = display.newImage( myImageSheet , sheetInfo:getFrameIndex("image_name1"))
 -- local myImage2 = display.newImage( myImageSheet , sheetInfo:getFrameIndex("image_name2"))

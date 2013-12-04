@@ -1,5 +1,6 @@
 local spriteSequences = {}
 
+-- START:sequenceData
 spriteSequences.spaceshipSequence = {
     { 
         name = SPR_SHIP,
@@ -7,5 +8,6 @@ spriteSequences.spaceshipSequence = {
         count = 1
     }
 }
+-- END:sequenceData
 
 return spriteSequences

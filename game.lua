@@ -10,6 +10,8 @@ local scene = storyboard.newScene()
 -- Require classes
 require( "class" )
 require( "gamesprite" )
+require( "spaceship" )
+require( "globals" )
 spritedata = require( "shipsprites" )
 spriteAnims = require( "spriteanims" )
 
@@ -25,6 +27,7 @@ spriteAnims = require( "spriteanims" )
 ---------------------------------------------------------------------------------
 -- BEGINNING OF YOUR IMPLEMENTATION
 ---------------------------------------------------------------------------------
+local spaceshipSprite
 
 -- Called when the scene's view does not exist:
 function scene:createScene( event )
@@ -38,10 +41,9 @@ function scene:createScene( event )
 	-----------------------------------------------------------------------------
 	local backGroundImage = display.newImage( "images/space_background.jpg", 
 		display.contentCenterX, display.contentCenterY )
-	group:insert( backGroundImage )
-
-	-- Image sheet
-    imageSheet = graphics.newImageSheet( "images/shipsprites.png", spritedata:getSheet( ) )
+	group:insert( backGroundImage )    
+	imageSheet = graphics.newImageSheet( "images/shipsprites.png", spritedata:getSheet( ) ) 
+	spaceshipSprite = Spaceship( group )
 end
 
 
@@ -54,7 +56,7 @@ function scene:enterScene( event )
 	--	INSERT code here (e.g. start timers, load audio, start listeners, etc.)
 	
 	-----------------------------------------------------------------------------
-	
+	Runtime:addEventListener( "enterFrame", tick )
 end
 
 
@@ -86,6 +88,7 @@ end
 function tick( )
 	addEnemies()
 	updateEnemies()
+	spaceshipSprite:update( )
 end
 
 function addEnemies( )
